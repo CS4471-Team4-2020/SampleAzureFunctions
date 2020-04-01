@@ -41,7 +41,7 @@ namespace FunctionApp1
             rKey = rKey ?? data?.RowKey;
 
             //Opening Azure Table Storage Connection
-            CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storageaccount4471b6a6;AccountKey=szKgwO4Cz83tcliAY2aOfK9odfnB+q/9veLMnspcoFDVpxNPA/7Z7PFqBHtbCQbVIpAJM3wHQJ360VcnCqzmZA==;EndpointSuffix=core.windows.net");
+            CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse("CONNECTION STRING HERE");
             CloudTableClient tableClient = cloudStorageAccount.CreateCloudTableClient();
             CloudTable cloudTable = tableClient.GetTableReference("stocksinfo");
 

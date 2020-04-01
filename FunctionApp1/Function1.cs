@@ -24,7 +24,7 @@ namespace FunctionApp1
     {
         [FunctionName("Function1")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -41,7 +41,7 @@ namespace FunctionApp1
             rKey = rKey ?? data?.RowKey;
 
             //Opening Azure Table Storage Connection
-            CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse("CONNECTION STRING HERE");
+            CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse("CONNECTION STRING");
             CloudTableClient tableClient = cloudStorageAccount.CreateCloudTableClient();
             CloudTable cloudTable = tableClient.GetTableReference("stocksinfo");
 
